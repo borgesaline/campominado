@@ -36,9 +36,12 @@ function clicou(event) {
         for (element of document.querySelectorAll('span')) {
             element.setAttribute('class', '');
         }
-        alert('perdeu');
-        window.location.reload();
-    } else {
+        alert('Você perdeu, quer jogar de novo?');
+        setTimeout(function() {
+            window.location.reload();
+          }, 2000);
+        //window.location.reload(); 
+    } else {   
         event.target.childNodes[0].setAttribute('class', '');
     }
 }
@@ -60,7 +63,7 @@ function drawTable(rows) {
     }
 }
 
-function randomMines(quantity, cols, rows) {
+/*function randomMines(quantity, cols, rows) {
     mines = [];
     for (i = 0; i < quantity; i++) {
         let positionRow = parseInt(Math.random() * rows); 
@@ -68,8 +71,8 @@ function randomMines(quantity, cols, rows) {
         mines.push([positionRow, positionCol]);
     }
     return mines;
-}
+}*/
 
-let mines = randomMines(10, 8, 8);
+let mines = [[0,2], [2,5], [5,5], [6,1], [3,6], [1,3]];
 let myField = field (8, 8, mines);
-drawTable(myField);
+drawTable(myField); 
